@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{myText}}</p>
+      <p>{{myNum}}</p>
+      <p v-for="(item,key) in $data">{{key}} : {{item}}</p>
+      <li v-for="(key,item) in $data">
+        {{key}} : {{item}}
+      </li>
+    </div>
+    <script>
+      var list = {
+        
+      }
+      new Vue({
+        el: '#app',
+        data: {
+          myText: "abcde",
+          myNum: 12345,
+          myArray: ["사과", "배", "오렌지"],
+        }
+      })
+    </script>
+  </body>
+</html>
