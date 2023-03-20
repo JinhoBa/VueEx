@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>model 연습</title>
+</head>
+<body>
+    <h2>폼 연결하기</h2>
+    <div id="app">
+        <select v-model="myColor" multiple style="width:150px">
+            <option>red</option>
+            <option>green</option>
+            <option>blue</option>
+            <option>orange</option>
+            <option>brown</option>
+        </select>
+        <p v-bind:style="{color: myColor}">선택한 색상은 {{myColor}} 입니다.</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                myColor: []
+            }
+        })
+    </script>
+</body>
+</html>

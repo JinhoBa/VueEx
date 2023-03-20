@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>model 연습</title>
+</head>
+<body>
+    <h2>폼 연결하기</h2>
+    <div id="app">
+        <label><input type="checkbox" value="red" v-model="myChecks">적</label><br>
+        <label><input type="checkbox" value="green" v-model="myChecks">녹</label><br>
+        <label><input type="checkbox" value="blue" v-model="myChecks">청</label><br>
+        선택한색은 {{myChecks}}<br><hr>
+        <label><input type="checkbox" v-model="myAgree">동의합니다.</label>
+        <button v-bind:disabled="myAgree==false">송신</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                myChecks: [],
+                myAgree: false
+            }
+        })
+    </script>
+</body>
+</html>

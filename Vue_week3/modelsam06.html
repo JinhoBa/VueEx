@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>model 연습</title>
+</head>
+<body>
+    <h2>폼 연결하기</h2>
+    <div id="app">
+        <input v-model.lazy="myText">
+        <p>입력후{{myText}}</p><hr>
+        <input v-model.number="myNumber1" type="number">
+        <p>100을 더해서 표시 {{100 + myNumber1}}</p><hr>
+        <input v-model="myNumber2" type="number">
+        <p>100을 더해서 표시 {{100 + myNumber2}}</p><hr>
+        <input v-model.trim="myText">
+        <p>앞뒤 공백을 제거 {{myText}}</p><hr>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                myText:'',
+                myNumber1: 0,
+                myNumber2: 0
+            }
+        })
+    </script>
+</body>
+</html>

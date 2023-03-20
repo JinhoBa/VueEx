@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>속성연습</title>
+</head>
+<body>
+    <h2>이미지 지정</h2>
+    <div id="app">
+        <p v-bind:align="myAlignRight">
+            <img src="summer.png" alt="summer"><br>
+            <p v-bind:align="myAlignCenter">
+                직접지정<br>
+                <img v-bind:src="imgName"><br>
+            </p>
+            v-bind로 지정1<br>
+        </p>
+        <img :src="imgName"><br>
+        v-bind로 지정2
+        <hr>
+        <h2>링크예제</h2>
+        <p :align="myAlignCenter">
+            태그활용 : <a href="https://www.naver.com">네이버</a><br>
+            v-bind활용1 : <a v-bind:href="myUrl">네이버</a><br>
+            v-bind활용2 : <a :href="myUrl">네이버</a>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                imgName : 'summer.png',
+                myUrl: 'https://www.naver.com',
+                myAlignRight : 'right',
+                myAlignCenter : 'center',
+                myAlignleft : 'left'
+            }
+        })
+    </script>
+</body>
+</html>

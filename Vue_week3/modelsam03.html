@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>model 연습</title>
+</head>
+<body>
+    <h2>폼 연결하기</h2>
+    <div id="app">
+        <label><input type="radio" value="red" v-model="picked">적</label><br>
+        <label><input type="radio" value="green" v-model="picked">녹</label><br>
+        <label><input type="radio" value="blue" v-model="picked">청</label><br>
+        {{picked}} 이 선택됨<br>
+        <label><input type="radio" value="face1.jpg" v-model="fileName">face1</label>
+        <label><input type="radio" value="face2.png" v-model="fileName">face2</label>
+        <p>{{fileName}} 선택</p>
+        <img v-bind:src="fileName">
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                picked: 'red',
+                fileName: ''
+            }
+        })
+    </script>
+</body>
+</html>
