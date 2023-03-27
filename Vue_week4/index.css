@@ -1,0 +1,25 @@
+.blue-underline{
+    text-decoration: underline;
+    color: blue;
+}
+.strike-through{
+    text-decoration: line-through;
+    color: lightgray;
+}
+.dark{
+    background-color: darkgray;
+}
+table{
+    width: 550px;
+    text-align: left;
+}
+table th{
+    padding: 12px;
+    border-bottom: 2px solid darkgray;
+}
+table  td{
+    padding: 12px;
+}
+table tr:nth-of-type(even){
+    background-color: rgba(0, 0, 255, 0.1);
+}

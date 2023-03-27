@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Event</title>
+</head>
+<body>
+    <h2>table 활용</h2>
+    <div id="app">
+        <table>
+            <thead>
+                <th v-for="item in header">{{item}}</th>
+            </thead>
+            <tbody>
+                <tr v-for="line in ranking">
+                    <td v-for="item in line">{{item}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            header: ['프로그램언어','2018','2013','2008','2003','1998'],
+            ranking: [
+                ['Java',1,2,1,1,16],
+                ['C',2,1,2,2,1],
+                ['C++',3,4,3,3,2],
+                ['Python',4,7,6,11,23],
+                ['JacaScript',7,10,8,7,20]
+            ]     
+        }
+    })
+</script>
+</html>

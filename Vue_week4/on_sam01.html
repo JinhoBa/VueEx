@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Event</title>
+</head>
+<body>
+    <h2>v-on 활용</h2>
+    <div id="app">
+        <button value="good" v-bind:disabled="isClick" v-on:click="oneClick">
+            한번만 클릭되는 버튼</button>
+        
+    </div>
+</body>
+<script>
+    function good(){
+        alert("좋아요~~")
+    }
+    new Vue({
+        el: '#app',
+        data: {
+            isClick : false
+        },
+        methods:{
+            oneClick: function(){
+                this.isClick = true
+                good()
+            }
+        }
+    })
+</script>
+</html>

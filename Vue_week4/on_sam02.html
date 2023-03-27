@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Event</title>
+</head>
+<body>
+    <h2>v-on 활용</h2>
+    <div id="app">
+        <button value="" v-on:click="countUp(1)">+1</button>
+        <button value="" v-on:click="countUp(3)">+3</button>
+        <button value="" @click="countUp(10)">+10</button>
+        <button value="" v-on:click="countUp(100)">+100</button><br>
+        <p>{{count}}</p>
+        <hr>
+        <input v-on:keyup.enter.shift="showAlert" v-model="myText">
+        <p>{{myText}}</p>
+        
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0,
+            myText: 'Hello'
+        },
+        methods:{
+            countUp: function(value){
+                this.count += value
+            },
+            showAlert: function(){
+                alert("Shift + Enter 를 눌렸습니다.");
+            }
+        }
+    })
+</script>
+</html>

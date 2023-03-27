@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>입력폼 활용</h2>
+    <div id="app">
+        <p>이름 : <input v-model.lazy="myName"></p>
+        좋아하는 아이돌 : <br>
+        <label><input type="radio" value="unche.jpg" v-model="fileName">홍은채</label><br>
+        <label><input type="radio" value="chewon.jpg" v-model="fileName">김채원</label><br>
+        <label><input type="radio" value="hu.jpg" v-model="fileName">허윤진</label><br>
+        <label><input type="radio" value="ku.jpg" v-model="fileName">사쿠라</label><br>
+        <label><input type="radio" value="kajeha.jpg" v-model="fileName">카즈하</label><br>
+        <p>내가 선택한 이미지는 {{fileName}} 입니다</p>
+        <p> 파일명을 분리하면 {{ afterFileName = fileName.split('.') }} 입니다</p>
+        <p>내이름은 {{myName}} 이고 좋아하는 아이돌은 {{afterFileName[0]}} 입니다</p>
+
+        <img :src="fileName" >
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            myName: '홍길동',
+            fileName: ''
+        }
+    })
+</script>
+</html>
