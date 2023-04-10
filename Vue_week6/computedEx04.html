@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title></title>
+</head>
+<body>
+    <h2></h2>
+    <div id="app">
+        <p v-bind:style="{backgroundColor: mixColor}">{{mixColor}}</p>
+        <input type="range" v-model="R" min="0" max="255"><br>
+        <input type="range" v-model="G" min="0" max="255"><br>
+        <input type="range" v-model="B" min="0" max="255"><br>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            R:0,
+            G:0,
+            B:0
+        },
+        computed:{
+            mixColor:function(){
+                var ans = "RGB("+ this.R+","+this.G +","+this.B+")";
+                return ans;
+            }
+        }
+    })
+</script>
+</html>

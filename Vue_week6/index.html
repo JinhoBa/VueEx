@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https:///cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title></title>
+</head>
+<body>
+    <h2>남은 시간을 감시하여 표기하고 0초가 되면 얼럿을 띄우는 예제</h2>
+    <div id="app">
+        <p>값은 {{animeNumber}}입니다.</p>
+        <input type="number" v-model.number="myNumber">
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            myNumber:0,
+            tweenedNumber: 0
+        },
+        methos:{
+            
+        },
+        watch:{
+            myNumber:function(){
+                TweenMax.to(this.$data,1,{tweenedNumber:this.myNumber})
+            }
+        },
+        computed:{
+            animeNumber:function(){
+                return this.tweenedNumber.toFixed(0);
+            }
+        }
+    })
+</script>
+</html>
