@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title></title>
+</head>
+<body>
+    <h2>제한 시간내에 문자 입력하기</h2>
+    <div id="app">
+        <p>금지문자(,로 나누어 복수입력가능
+            <input :disabled="!isWritable" v-model="forbiddenText" >
+        </p>
+        <p>제한시간을 입력하세요 (초) <input :disabled="!isWritable" v-model="setTime">
+            <button :disabled="!isWritable" v-on:click="start">시작</button>
+        </p>
+        <p>남은시간 {{limitime}} 초</p>
+        <textarea :disabled="isWritable" v-model="inputText"></textarea>
+        <p v-if="isResult">{{wordCnt}} 개의 문자를 입력하였습니다</p>
+        <p v-if="isResult">벌점 : {{resultScore}}</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            forbiddenText:"나쁜, 바보",
+            setTime: 0,
+            limitime: 0,
+            isWritable: true,
+            isResult: false,
+            inputText: "",
+            timerObj:null,
+            forbiddenText:0            
+        },
+        methods:{
+            start:function(){
+                this.isWritable = false;
+                this.limitime = this.setTime;
+                this.timerObj = setInterval(()=> {this.limitime--},1000);
+                this.isResult = false;
+            }
+        },
+        computed:{
+            resultScore: function(){
+                return this.forbiddenText *12;
+            }
+        },
+        watch:{
+            inputText:function(){
+                
+            }
+        }
+    })
+</script>
+</html>
