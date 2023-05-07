@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>ex1</title>
+</head>
+<body>
+    <h2>체크박스로 리스트 애니메이션</h2>
+    <div id="app">
+        <transition-group>
+            <li v-for="item in dataArray" v-bind:key="item">{{item}}</li>
+        </transition-group>
+        <label><input v-model="addItem" placeholder="추가할 리스트"></label>
+        <button @click="addList">추가</button>
+        <button @click="removeList">맨뒤 1개 삭제</button>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            dataArray:['벛꽃','산수유','진달래','철죽'],
+            addItem:''
+        },
+        methods:{
+            addList:function(){
+                this.dataArray.push(this.addItem);
+                this.addItem = '';
+            },
+            removeList:function(){
+                this.dataArray.pop();
+            }
+        }
+    })
+</script>
+<style>
+    /* 나타나고 있을때와 사라지고 있을때 0.5초*/
+    .v-enter-active, .v-leave-active {
+        transition: 0.5s;
+    }
+    /* 나타나기 전의 상태과 사라진 후의 상태는 투명도 0, 오른쪽으로 50 이동*/
+    .v-enter, .v-leave-to {
+        opacity: 0;
+        transform: translateX(50px)
+    }
+</style>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>ex1</title>
+</head>
+<body>
+    <h2>체크박스로 애니메이션</h2>
+    <div id="app">
+        <label><input type="checkbox" v-model="isOk">변경</label>
+         <transition>
+            <p v-if="isOk">표시/비표시의 애니메이션</p>
+         </transition>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            isOk:false
+        }
+    })
+</script>
+</html>
