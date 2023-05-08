@@ -1,0 +1,3 @@
+npm install -g @vue.cli 	vuecli설치
+vue create project_name	프로젝트 만들기
+npm run serve 	프로젝트 npm 실행
