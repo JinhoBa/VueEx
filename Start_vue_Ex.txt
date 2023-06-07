@@ -2,4 +2,4 @@ npm install -g vue.cli 	@vue/cli설치
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned  실행정책
 vue create project_name	프로젝트 만들기
 npm run serve 	프로젝트 npm 실행
-npm run lin -- --fix  fix오류 해결
+npm run lint -- --fix  fix오류 해결
